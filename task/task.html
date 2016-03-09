@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,html{margin:0;}
+        ul{margin: 0;padding: 0;list-style: none;  }
+        .box{margin: 40px auto;width:600px; height:460px;
+            position: relative;background: #fff;padding:20px ;display: none;
+            }
+        .prev,.next{width: 80px;height: 80px;border-radius: 40px;
+            line-height: 80px;text-align: center;background: #919394;color: #fff;
+            font-size: 40px;position: absolute;top:190px;border: none;
+            cursor: pointer;}
+            .prev{left: -120px;}
+            .next{right: -120px;}
+        .img{width: 350px;height: 300px;border: none;float: left;
+            margin-right: 50px;padding-top: 20px;}
+        .box img{width: 350px;height: 300px;border: none;}
+        .right{float: left;height: 320px;}
+            h1{margin: 0 0 4px 0; font-size: 20px;line-height: 36px;
+                border-bottom: 1px solid #262112;width: 200px;
+                font-weight: normal;  }
+            .right li{margin-bottom: 4px;}
+            .right span{margin-left: 30px;color: red;}
+            .right .nb{color: #000;}
+        .footer{width:550px;height:90px;position: absolute;left: 50px;
+                bottom: 0;overflow: hidden;padding-top: 10px;}
+        .footer ul{height: 88px;width: 1000px;transition: all 1s}
+        .footer li{width: 100px; height: 88px;float: left;margin-right: 10px;display: inline;
+                    position: relative;}
+        .footer img{width: 100px;height: 88px;border: none;cursor:pointer;vertical-align: bottom}
+        .footer .active {border: 1px solid red;width: 100px;height: 88px;}
+        .footer li span{width: 0;height: 0;border: 10px solid transparent;
+                position: absolute;border-bottom:10px solid red;top:-20px;left: 40px;display:none;}
+        .floats{position:absolute;top:0;left:0; width:100%; height:100%; background: rgba(0, 0, 0, 0.51);
+                display: none;}
+        .bottom {margin: 80px auto;padding-left: 38px;text-align: center;}
+        .bottom img{width:280px;height:180px;margin:0 10px 16px 0;cursor: pointer;}
+        .closed{width: 20px;height: 20px;text-align: center;font-size: 20px;
+                position: absolute;right: 0;top: 0;background: #919394;line-height: 20px;
+        }
+        </style>
+</head>
+<body>
+<div class="floats">
+    <div class="box">
+        <div class="closed">x</div>
+        <input class="prev" type="button" value="<">
+        <input class="next" type="button" value=">">
+        <div class="img">
+            <img  src=""/>
+        </div>
+        <div class="right">
+            <h1>推荐商品</h1>
+            <ul>
+                <li>编号：<span class="nb">A001</span></li>
+                <li>价格：<span>￥0.00</span></li>
+            </ul>
+        </div>
+        <div class="footer">
+            <ul>
+                <li><img src="" ><span></span></li>
+                <li><img src=""><span></span></li>
+                <li><img src=""><span></span></li>
+                <li><img src=""><span></span></li>
+                <li><img src=""><span></span></li>
+                <li><img src=""><span></span></li>
+                <li><img src=""><span></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+</div>
+</body>
+</html>
+<script>
+ var arrImgLISrc = ['imgli1.jpg','imgli2.jpg','imgli3.jpg','imgli4.jpg','imgli5.jpg','imgli6.jpg','imgli7.jpg'];
+ var arrImgSrc = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg','img6.jpg','img7.jpg'];
+ var aImgLi = document.querySelectorAll('.footer img')   ;
+ var aBtmImg = document.querySelectorAll('.bottom img')   ;
+ var oUL = document.querySelector('.footer ul')   ;
+ var oClosed = document.querySelector('.closed')   ;
+ var aSpan = document.querySelectorAll('.footer span')   ;
+ var oImg   = document.querySelector('.img img')   ;
+ var oH1   = document.querySelector('h1')   ;
+ var oBtm   = document.querySelector('.bottom')   ;
+ var oBox   = document.querySelector('.box')   ;
+ var oFlt   = document.querySelector('.floats')   ;
+ var oPrev = document.querySelector('.prev');
+ var oNext = document.querySelector('.next');
+ var len =  arrImgLISrc.length;
+ var num = 0;
+
+     function fnTab(m){
+         oImg.src = arrImgSrc[m];
+         for(var i =0 ;i<len;i++)
+             {
+                 aImgLi[i].className='';
+                 aSpan[i].style.display = 'none';
+             }
+         oClosed.onclick = function(){
+             oBox.style.display = 'none';
+             oFlt.style.display = 'none';
+         };
+         aImgLi[m].className = 'active';
+         aSpan[m].style.display='block';
+         num = m;
+         oH1.innerHTML ='产品'+(m+1);
+     }fnTab(0);
+
+
+     for(var i = 0;i<len;i++)
+        {
+            aBtmImg[i].index = i;
+            aBtmImg[i].onclick =function(){
+                oBox.style.display = 'block';
+                oFlt.style.display = 'block';
+                if(this.index<5){num=0;oUL.style.marginLeft = '0'}
+                if(this.index>=5){oUL.style.marginLeft = '-550px'}
+                fnTab(this.index);
+            };
+            aBtmImg[i].src = arrImgSrc[i];
+            aImgLi[i].src = arrImgLISrc[i];
+            aImgLi[i].index = i;
+
+
+            aImgLi[i].onclick = function ()
+            {fnTab(this.index)};
+
+
+            oPrev.onclick =function(){
+                num--;
+                if(num==4){oUL.style.marginLeft = '0'}
+                if(num<0){num=len-1;
+                    oUL.style.marginLeft = '-550px'}
+                fnTab(num);         };
+
+
+            oNext.onclick =function(){
+                num++;if(num>=4){oUL.style.marginLeft = '-550px'}
+                if(num>len-1){num=0;oUL.style.marginLeft = '0'}
+                fnTab(num);         }
+        }
+</script>
