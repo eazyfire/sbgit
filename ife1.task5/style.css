@@ -1,0 +1,59 @@
+
+        /* 布局样式 */
+    body { margin: 0; padding: 0;min-width: 768px;}
+    h2,h3,p,ul,ol,figure,textarea{margin: 0;padding: 0;}
+    li   {list-style: none;}
+    a    { text-decoration: none; }
+    img  {border: none;vertical-align: bottom;}
+
+    header  { height:38px;background: #333333;padding: 10px 20px 12px 40px}
+    .wrap {background: #dedede;padding: 20px;}
+    .clear{zoom:1;}
+    .clear:after{content: "";display: block; clear: both;}
+    .main { float: left;width: 100%;  }
+    article {margin-right:404px;border: 1px solid #cdcdcd;background: #fff;
+            box-shadow:1px 1px 1px #000;margin-bottom:18px;padding: 20px;}
+    article:last-child {margin-bottom: 0;}
+    aside{float: left;width: 322px;background: #fff;font-size: 12px;
+          margin-left: -382px;border: 1px solid #cdcdcd ;display: inline;
+          box-shadow:1px 1px 1px #000;padding: 20px; }
+    footer{height: 70px;line-height: 70px;font-size: 12px;color: #fff;background: #000;text-align: center;}
+
+
+    header a {float: right;font-size: 12px;line-height:38px;color: #fff;display: block;
+              padding:0 7px 0  13px;background: url('dot.gif')0 center no-repeat; }
+    header a:first-of-type {padding-right: 20px;}
+    header .active{color: #a7a7a7}
+
+
+    aside h2{border-left:3px solid #cdcdcd;height: 38px;font-size: 16px;
+            line-height: 38px;padding-left: 10px;}
+    aside div{margin-bottom: 10px;}
+    aside span{width: 96px;padding-right: 14px;display: inline-block;text-align: right}
+    aside textarea{width: 210px;height: 98px;border: 1px solid #ccc;font-size: 16px;line-height: 18px;
+                    resize: none;font-weight: bold;vertical-align: top}
+    aside div~input{display: block;background: #3355d0;color: #fff;text-align: center;
+                            border-radius: 8px;width: 100%;font-size: 16px;line-height: 38px;}
+
+
+    article h2 {height: 60px;line-height: 60px;font-size: 20px;}
+    article h3 { height: 22px;line-height: 22px;font-size: 16px;color: #596269 }
+    article address { height:40px;line-height: 40px; font-size: 12px; color: #596269;
+                    font-style: normal;}
+    article p  { line-height: 24px;font-size: 14px;text-indent: 28px; }
+    article img { margin: 14px 0; }
+    article li { font-size: 14px;line-height: 24px;padding-left: 20px; }
+    table,td,th{border: 1px solid #d3d3d3}
+    article table{width: 100%;font-size: 12px;line-height: 24px;border-collapse: collapse;}
+    th {text-align: left;color: #fff;background: #333333;}
+    tfoot td{background: #ccc;}
+
+
+    @media (min-width:1170px ) {
+        .img_box figure {width: 20%;padding:10px;border: 1px solid #ccc;margin: 1%;float: left;  }
+    }
+    @media (max-width:1170px ) {
+            .img_box figure {width: 40%;padding:10px;border: 1px solid #ccc;margin: 1%;float: left;  }
+    }
+    .img_box figcaption{font-size: 12px;margin-bottom:12px;text-align: center; }
+    .img_box img {width: 100%;margin: 0;}
