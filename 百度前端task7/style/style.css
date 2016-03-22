@@ -1,0 +1,15 @@
+body { margin: 0; padding: 0; font-size: 14px;font-family: ¿¬Ìå,Î¢ÈíÑÅºÚ }
+ul,h1,h2,h3,p { margin: 0; padding: 0; }
+input,textarea {padding: 0;border: none;}
+textarea {resize: none;overflow: auto;}
+li { list-style: none; }
+a { text-decoration: none; }
+img { border: none;vertical-align: bottom; }
+.clear:after { content: "";display: block;clear: both; }
+.fL { float: left; }
+.fR { float: right; }
+.rel {position: relative;}
+.ab { position: absolute;  }
+.white { color: #fff; }
+.clear { zoom:1 }
+.center {margin:0 auto;}
