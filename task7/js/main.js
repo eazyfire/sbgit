@@ -6,19 +6,25 @@ window.onload = function(){
     var oNavBar = document.getElementById('nav_bar');
     var aA = oNavBar.getElementsByTagName('a');
     for(var i =0 ;i<aA.length;i++)
-    { aA[i].onmouseover = function() {
-        for (var i = 0; i < aA.length; i++) {
-            aA[i].className = '';
-        }
+    {
+        aA[i].onmouseover = function()
+        {
+        for (var i = 0; i < aA.length; i++)
+            {
+                aA[i].className = '';
+            }
         this.className = 'active';
-                                    }
-    };
+
+        }
+    }
 
     var getByClass = function(oParent,sClass){
         var aEle = oParent.getElementsByTagName('*');
         var arr = [];
-        for(var i=0;i<aEle.length;i++){
-            if(aEle[i].className == sClass){
+        for(var i=0;i<aEle.length;i++)
+        {
+            if(aEle[i].className == sClass)
+            {
                 arr.push(aEle[i]);
             }
         }
@@ -26,42 +32,55 @@ window.onload = function(){
         return arr;
     };
 
-    var tab = function(){
-    var oAdL = document.getElementById('ad_l');
-    var oAdR = document.getElementById('ad_r');
-    var oAdTabMenu = document.getElementById('ad_tab_menu');
-    var aA = oAdTabMenu.getElementsByTagName('a');
-    var oSpan = oAdR.getElementsByTagName('span')[0];
-    var oUl = oAdL.getElementsByTagName('ul')[0];
-    var aLi = oUl.getElementsByTagName('li');
-    var wid = aLi[0].offsetWidth;
-    var num = 0;
-    var timer=0;
-    function m(){
-        timer=setInterval(function(){ab(num);},2000);
-    }
-    m();
-    for(var i=0;i<aA.length;i++)
-        {aA[i].index= i;
-            aA[i].onclick =function(){
+    var tab = function()
+    {
+        var oAdL = document.getElementById('ad_l');
+        var oAdR = document.getElementById('ad_r');
+        var oAdTabMenu = document.getElementById('ad_tab_menu');
+        var aA = oAdTabMenu.getElementsByTagName('a');
+        var oSpan = oAdR.getElementsByTagName('span')[0];
+        var oUl = oAdL.getElementsByTagName('ul')[0];
+        var aLi = oUl.getElementsByTagName('li');
+        var wid = 0;
+        var num = 0;
+        var timer=0;
+        clearInterval(timer);
+        function m()
+        {
+            timer=setInterval(function(){ab(num);},2000);
+        }
+        m();
+        for(var i=0;i<aA.length;i++)
+        {
+            aA[i].index= i;
+            aA[i].onclick =function()
+            {
                 clearInterval(timer);
                 ab(this.index);
                 m();
             };
-          }
-    function ab(a){
-        num++;
-        if(num==aLi.length){num=0;}
-        for(var i=0;i<aLi.length;i++)
-        {
-            aA[i].className = '';
         }
-        aA[a].className = 'active';
-        oSpan.innerHTML = '0'+(a+1);
-        oUl.style.marginLeft = -a*wid+ 'px';
-    };};tab();
+        function ab(a)
+        {
+            wid=aLi[0].offsetWidth;
+            num++;
+            if(num==aLi.length)
+                {
+                    num=0;
+                }
+            for(var i=0;i<aLi.length;i++)
+                {
+                    aA[i].className = '';
+                }
+            aA[a].className = 'active';
+            oSpan.innerHTML = '0'+(a+1);
+            oUl.style.marginLeft = -a*wid+ 'px';
+        }
+    };tab();
     // 如何实现轮播刷新。
-    window.onresize = function(){
+
+    window.onresize = function()
+    {
         tab();
     };
     var oTextCut = function(){
@@ -119,16 +138,21 @@ window.onload = function(){
                         };
                     aLi[j].onclick =function()
                         {
-                            if(aInp[This].value!=this.innerHTML)
-                             {
-                                 aInp[This].value=this.innerText;
-                                 aUl[This].style.display = 'none';
-                                 return false;
-                             }
+                                 if(aInp[This].value==this.innerText)
+                                     {
+                                         aUl[This].style.display = 'none';
+                                     }
+                                 else {
+                                     aInp[This].value = this.innerText;
+                                     aUl[This].style.display = 'none';
+                                    }
                         }
                 }
+            };
+            aListMenu[i].onmouseout = function()
+            {
+                aUl[this.index].style.display = 'none';
             }
-
         }
     };
         oInfoCheck();

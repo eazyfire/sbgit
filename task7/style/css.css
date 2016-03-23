@@ -1,5 +1,5 @@
 
-.wrapper { -min-width: 1280px;margin:0 auto; }
+.wrapper { min-width: 840px;margin:0 auto; }
 #header { height: 56px; }
 .screen-img { height: 690px;border: 1px solid #f1f2f3;position: relative; }
 #list {height:205px;padding-top: 45px; margin: 0 auto;}
