@@ -66,12 +66,13 @@
         <div class="wrap ab"></div>
         <h2 class="white">查找新世界城市活动信息</h2>
         <p class="white">每个城市的有不同的活动信息，请自主查询您所需要了解的城市</p>
-        <ul id="info_list">
-            <li class="list_menu"><div>中国</div><span></span><ul class="menu">
+        <form action="">
+            <ul id="info_list">
+            <li class="list_menu"><label><input type="text" value="中国"/></label><span></span><ul class="menu">
                 <li class="active2"><div>美国</div></li>
                 <li>英国</li>
             </ul></li>
-            <li class="list_menu"><div>省份</div><span></span>
+            <li class="list_menu"><label><input type="text" value="省份"/></label><span></span>
                 <ul class="menu">
                     <li class="active2"><div>北京市</div></li>
                     <li>天津市</li>
@@ -81,7 +82,7 @@
                     <li>辽宁省</li>
                 </ul>
             </li>
-            <li class="list_menu"><div>城市</div><span></span>
+            <li class="list_menu"><label><input type="text" value="城市"/></label><span></span>
                 <ul class="menu">
                     <li class="active2"><div>北京</div></li>
                     <li>天津</li>
@@ -89,11 +90,12 @@
                     <li>西安</li>
                 </ul>
             </li>
-            <li class="list_menu search"><a href="#">搜&nbsp;&nbsp;索</a></li>
-        </ul>
+            <li class="list_menu search"><label><input type="submit" value="搜   索"/></label></li>
+        </ul></form>
+
     </div>
-    <div class="activity">
-        <ul>
+    <div class="activity clear">
+        <ul class="clear">
             <li>
                 <a href="#">
                     <img src="img/img-3.jpg" alt=""/>
@@ -166,9 +168,9 @@
                 <a href="#">查看更多</a>
             </li>
             <li class="list3">
-                <div>
+
                     <img src="./img/ad-img/4.jpg"/>
-                </div>
+
             </li>
         </ul>
     </div>
@@ -198,7 +200,7 @@
             <h2>成为我们的志愿者</h2>
             <p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情那就不要犹豫，快来加入我们，成为改变所有人生活的人 </p>
            <div class="form">
-               <form>
+               <form action="" name="user_data">
                    <div class="form_list clear"><span>姓 名：</span><div><label><input type="text" placeholder="请输入您的姓名"/></label></div></div>
                    <div class="form_list clear"><span>联系方式：</span><div><label><input type="text" placeholder="请输入您的联系方式"/></label></div></div>
                    <div class="form_list clear"><span>自我描述：</span><div><label><textarea placeholder="请简单描述您的梦想生活"></textarea></label></div></div>
