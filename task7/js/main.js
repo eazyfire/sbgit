@@ -1,19 +1,17 @@
-/**
- * Created by Administrator on 2016/3/21.
- */
 window.onload = function(){
     //µ¼º½Ìõhover£»
     var oNavBar = document.getElementById('nav_bar');
     var aA = oNavBar.getElementsByTagName('a');
+    var timer=0;
     for(var i =0 ;i<aA.length;i++)
     {
         aA[i].onmouseover = function()
         {
-        for (var i = 0; i < aA.length; i++)
+            for (var i = 0; i < aA.length; i++)
             {
                 aA[i].className = '';
             }
-        this.className = 'active';
+            this.className = 'active';
 
         }
     }
@@ -43,7 +41,6 @@ window.onload = function(){
         var aLi = oUl.getElementsByTagName('li');
         var wid = 0;
         var num = 0;
-        var timer=0;
         clearInterval(timer);
         function m()
         {
@@ -65,13 +62,13 @@ window.onload = function(){
             wid=aLi[0].offsetWidth;
             num++;
             if(num==aLi.length)
-                {
-                    num=0;
-                }
+            {
+                num=0;
+            }
             for(var i=0;i<aLi.length;i++)
-                {
-                    aA[i].className = '';
-                }
+            {
+                aA[i].className = '';
+            }
             aA[a].className = 'active';
             oSpan.innerHTML = '0'+(a+1);
             oUl.style.marginLeft = -a*wid+ 'px';
@@ -81,34 +78,35 @@ window.onload = function(){
 
     window.onresize = function()
     {
+        clearInterval(timer);
         tab();
     };
     var oTextCut = function(){
-    var oJoinL = document.getElementById('join_l');
-    var aSpan  = oJoinL.getElementsByTagName('span');
-    var aA  = oJoinL.getElementsByTagName('a');
-    var arr =[];
-      for(var i=0;i<aA.length;i++){
-          aA[i].index = i;
-          aA[i].onOff = 0;
-          arr[i] = aSpan[i].innerHTML;
-          aSpan[i].innerHTML = arr[i].substring(0,33);
-          aA[i].innerHTML = 'more';
-          aA[i].onclick = function(){
-          var str = arr[this.index];
-              if(aA[this.index].onOff) {
-                  aSpan[this.index].innerHTML = str.substring(0,33);
-                  aA[this.index].innerHTML = 'more';
-              }
-              else{
-                  aSpan[this.index].innerHTML = str;
-                  aA[this.index].innerHTML = 'return';
-              }
-              aA[this.index].onOff =!aA[this.index].onOff;
-          }
-      }
-  };
-        oTextCut();
+        var oJoinL = document.getElementById('join_l');
+        var aSpan  = oJoinL.getElementsByTagName('span');
+        var aA  = oJoinL.getElementsByTagName('a');
+        var arr =[];
+        for(var i=0;i<aA.length;i++){
+            aA[i].index = i;
+            aA[i].onOff = 0;
+            arr[i] = aSpan[i].innerHTML;
+            aSpan[i].innerHTML = arr[i].substring(0,33);
+            aA[i].innerHTML = 'more';
+            aA[i].onclick = function(){
+                var str = arr[this.index];
+                if(aA[this.index].onOff) {
+                    aSpan[this.index].innerHTML = str.substring(0,33);
+                    aA[this.index].innerHTML = 'more';
+                }
+                else{
+                    aSpan[this.index].innerHTML = str;
+                    aA[this.index].innerHTML = 'return';
+                }
+                aA[this.index].onOff =!aA[this.index].onOff;
+            }
+        }
+    };
+    oTextCut();
     var oInfoCheck = function()
     {
         var oInfList = document.getElementById('info_list');
@@ -121,32 +119,33 @@ window.onload = function(){
             aListMenu[i].onmouseover = function()
             {   var This =this.index;
                 for(var i = 0;i<aListMenu.length;i++)
-                    {
-                        aUl[i].style.display = 'none';
-                    }
+                {
+                    aUl[i].style.display = 'none';
+                }
                 aUl[this.index].style.display = 'block';
                 var aLi =this.getElementsByTagName('li');
                 for(var j=0;j<aLi.length;j++)
                 {   aLi[j].index=j;
                     aLi[j].onmouseover = function()
+                    {
+                        for(var i=0;i<aLi.length;i++)
                         {
-                            for(var i=0;i<aLi.length;i++)
-                                {
-                                    aLi[i].className='';
-                                }
-                            this.className = 'active2';
-                        };
-                    aLi[j].onclick =function()
-                        {
-                                 if(aInp[This].value==this.innerText)
-                                     {
-                                         aUl[This].style.display = 'none';
-                                     }
-                                 else {
-                                     aInp[This].value = this.innerText;
-                                     aUl[This].style.display = 'none';
-                                    }
+                            aLi[i].className='';
                         }
+                        this.className = 'active2';
+                    };
+                    aLi[j].onclick =function()
+                    {
+                        if(aInp[This].value==this.innerText)
+                        {
+                            aUl[This].style.display = 'none';
+                        }
+                        else {
+                            aInp[This].value = this.innerText;
+                            aInp[This].value = this.textContent;
+                            aUl[This].style.display = 'none';
+                        }
+                    }
                 }
             };
             aListMenu[i].onmouseout = function()
@@ -155,6 +154,6 @@ window.onload = function(){
             }
         }
     };
-        oInfoCheck();
+    oInfoCheck();
 
 };
